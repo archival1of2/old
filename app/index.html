@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en" ng-app="gpquery" ng-app>
+
+<head>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-resource.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-animate.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="components/races/races.module.js"></script>
+  <script src="components/races/races.controllers.js"></script>
+  <script src="components/races/races.services.js"></script>
+  <script src="components/race/race.module.js"></script>
+  <script src="components/race/race.controllers.js"></script>
+  <script src="components/race/race.services.js"></script>
+
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.11.2/ui-bootstrap-tpls.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.11/angular-ui-router.min.js"></script>
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/styles/dashboard.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-3 col-md-2 sidebar">
+        <div class="row" ng-controller="RacesController">
+          <input type="text" id="racesFilter" ng-model="racesFilter" placeholder="Filter Races..." />
+          <ul>
+            <li ng-repeat="race in races | filter:racesFilter | limitTo: racesLimit">
+              <a ui-sref="race({raceId:race.raceId})">{{race.year}} {{race.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+        <div ui-view></div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+<!--
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" 
+    ng-controller="NavbarCtrl" ng-include="'components/layout/navbar.html'">
+-->
+</body>
+
+</html>

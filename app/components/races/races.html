@@ -1,0 +1,9 @@
+
+
+<input type="text" id="racesFilter" ng-model="racesFilter" placeholder="Filter Races..." />
+
+<ul>
+  <li ng-repeat="race in races | filter:racesFilter | limitTo: racesLimit">
+    {{race.raceId}}: {{race.year}} {{race.name}}
+  </li>
+</ul>

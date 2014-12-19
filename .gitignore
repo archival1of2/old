@@ -1,0 +1,6 @@
+api/vendor/
+api/config/database.php
+api/models/old/
+app/bower_components/
+app/node_modules/
+doc/
